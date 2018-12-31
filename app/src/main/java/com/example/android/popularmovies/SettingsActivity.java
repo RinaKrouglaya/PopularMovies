@@ -1,5 +1,6 @@
 package com.example.android.popularmovies;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -9,6 +10,7 @@ import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 
 public class SettingsActivity extends AppCompatActivity {
+
 
     @Override
     protected void  onCreate (Bundle savedInstanceState){
@@ -65,5 +67,11 @@ public class SettingsActivity extends AppCompatActivity {
         }
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent i = new Intent(this, MainActivity.class);
+        SettingsActivity.this.finish();
+        startActivity(i);
+    }
 }

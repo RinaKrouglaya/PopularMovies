@@ -28,13 +28,13 @@ public class MainActivity extends AppCompatActivity
         implements MovieItemAdapter.ListItemClickListener {
 
     private static final int NUM_LIST_ITEMS = 20;
-    static String pageNumber = "1";
 
     private static MovieItemAdapter mAdapter;
     private static RecyclerView mRecyclerView;
     private static TextView mErrorMessageDisplay;
     static ArrayList<MovieItem> globalMovieData;
     private static ProgressBar mLoadingIndicator;
+    String sortSelection= "popular";
 
 
 
@@ -77,7 +77,9 @@ public class MainActivity extends AppCompatActivity
         * Getting parameters from the Settings Menu
         * */
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(MainActivity.this );
-         String sortSelection = sharedPrefs.getString(
+
+
+        sortSelection = sharedPrefs.getString(
                 getString(R.string.settings_sort_parameter),
                 getString(R.string.settings_default_sort_by_popularity));
 
@@ -190,9 +192,9 @@ public class MainActivity extends AppCompatActivity
         if (params.length != 0){
            sortSelectionParameter = params[0];
         }
-        else sortSelectionParameter= "vote_average.desc";
+        else sortSelectionParameter= "top_rated";
 
-            URL movieRequestUrl = NetworkUtils.buildUrl(sortSelectionParameter, pageNumber);
+            URL movieRequestUrl = NetworkUtils.buildUrl(sortSelectionParameter);
 
             try {
                 String jsonMovieResponse = NetworkUtils

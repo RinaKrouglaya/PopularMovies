@@ -18,25 +18,23 @@ public final class NetworkUtils {
 
     private static final String TAG = NetworkUtils.class.getSimpleName();
 
+    private NetworkUtils() { };
+
     private static final String THE_MOVIE_DB_REQUEST_URL =
-            "https://api.themoviedb.org/3/discover/movie?";
+            "https://api.themoviedb.org/3/movie/";
     final static String API_KEY_LABEL_NAME = "api_key";
-    final static String LANGUAGE = "language";
-    final static String ENGLISH_LANGUAGE = "en-US";
-    final static String SORT_BY = "sort_by";
-    final static String PAGE_NUMBER = "page";
+
 
     /**
      * Builds the URL used to talk to the movie server.
      *
      * @return The URL to use to query the movie server.
      */
-    public static URL buildUrl(String sortOrderParam, String pageNumber) {
+    public static URL buildUrl(String sortOrderParam) {
+        Log.v(TAG, sortOrderParam);
         Uri builtUri = Uri.parse(THE_MOVIE_DB_REQUEST_URL).buildUpon()
+                .appendPath(sortOrderParam)
                 .appendQueryParameter(API_KEY_LABEL_NAME, APIKey.API_KEY)
-                .appendQueryParameter(LANGUAGE, ENGLISH_LANGUAGE)
-                .appendQueryParameter(SORT_BY,sortOrderParam)
-                .appendQueryParameter( PAGE_NUMBER, pageNumber)
                 .build();
 
         URL url = null;

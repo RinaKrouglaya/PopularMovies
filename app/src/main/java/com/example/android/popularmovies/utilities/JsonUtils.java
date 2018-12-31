@@ -20,6 +20,8 @@ import java.util.List;
  */
 
 public final class JsonUtils {
+
+
     private static final String DATABASE_IMAGE_LINK = "https://image.tmdb.org/t/p/w500/";
     /**
      * This method parses JSON from a web response and returns the ArrayList of MovieItems

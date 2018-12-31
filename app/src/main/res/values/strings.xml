@@ -27,10 +27,10 @@
         @string/setting_sort_by_popularity_key_value</string>
 
     <string name="setting_sort_by_popularity_label">Sort By Popularity</string>
-    <string name="setting_sort_by_popularity_key_value">popularity.desc</string>
+    <string name="setting_sort_by_popularity_key_value">popular</string>
 
     <string name="setting_sort_by_rating_label">Sort By The Highest Rating</string>
-    <string name="setting_sort_by_rating_key_value" >vote_average.desc</string>
+    <string name="setting_sort_by_rating_key_value" >top_rated</string>
 
 
 </resources>
